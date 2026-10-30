@@ -10,3 +10,9 @@
 .registry-empty{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px;color:#9bab9f;font-size:10px;letter-spacing:.08em}
 .dialog-content h2{font-size:clamp(28px,7vw,52px);overflow-wrap:anywhere;line-height:1.04}
 @media(max-width:620px){.registry{padding:18px}.registry-header{display:block}.registry-header h3{font-size:32px}}
+
+/* Social links for operator cards and dossiers */
+.card-actions .tiktok-link{color:#9dff57;font-weight:700}
+.dialog-tiktok{margin-left:12px;color:#9dff57}
+.dialog-tiktok[hidden]{display:none!important}
+#dialogBio{white-space:pre-line}
