@@ -95,3 +95,25 @@ if (toggle && nav) {
     });
   });
 }
+
+/* Extraction Squad — TikTok dossier links */
+const squadTikToks = {
+  quiet: 'https://www.tiktok.com/@quietextraction',
+  jugg: 'https://www.tiktok.com/@juggernaut2300'
+};
+
+document.querySelectorAll('[data-operator]').forEach(button => {
+  button.addEventListener('click', () => {
+    const tiktok = document.getElementById('dialogTiktok');
+    if (!tiktok) return;
+
+    const url = squadTikToks[button.dataset.operator];
+
+    if (url) {
+      tiktok.href = url;
+      tiktok.hidden = false;
+    } else {
+      tiktok.hidden = true;
+    }
+  });
+});
