@@ -6,7 +6,7 @@
 <main><nav class="controls" aria-label="Select mall floor"><button data-floor="basement" aria-pressed="false">basement</button><button data-floor="0" aria-pressed="false">floor 0</button><button data-floor="1" aria-pressed="true">floor 1</button><button data-floor="2" aria-pressed="false">floor 2</button></nav><div id="map" role="region" aria-label="Zoomable Mall floor plan"></div><p class="note">Use pinch or scroll to zoom; drag to pan. This first release contains the original floor plans. Verified item markers will be added next.</p></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-const floors={basement:{src:'maps/mall-basement.png',w:1406,h:1536},'0':{src:'maps/mall-floor-0.png',w:1536,h:844},'1':{src:'maps/mall-floor-1.png',w:1536,h:1021},'2':{src:'maps/mall-floor-2.png',w:1536,h:780}};
+const floors={'B':{src:'maps/Basement.png',w:1406,h:1536},'0':{src:'maps/Floor0.png',w:1536,h:844},'1':{src:'maps/Floor1.png',w:1536,h:1021},'2':{src:'maps/Floor2.png',w:1536,h:780}};
 const map=L.map('map',{crs:L.CRS.Simple,minZoom:-4,maxZoom:3,zoomSnap:.25,attributionControl:false});let overlay;
 function selectFloor(id){const f=floors[id];const bounds=[[0,0],[f.h,f.w]];if(overlay)map.removeLayer(overlay);overlay=L.imageOverlay(f.src,bounds).addTo(map);map.setMaxBounds(L.latLngBounds(bounds).pad(0.4));map.fitBounds(bounds,{padding:[15,15]});document.querySelectorAll('[data-floor]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.floor===id)));}
 document.querySelectorAll('[data-floor]').forEach(b=>b.addEventListener('click',()=>selectFloor(b.dataset.floor)));selectFloor('1');
