@@ -9,5 +9,5 @@
 const floors={'B':{src:'maps/Basement.png',w:1406,h:1536},'0':{src:'maps/Floor0.png',w:1536,h:844},'1':{src:'maps/Floor1.png',w:1536,h:1021},'2':{src:'maps/Floor2.png',w:1536,h:780}};
 const map=L.map('map',{crs:L.CRS.Simple,minZoom:-4,maxZoom:3,zoomSnap:.25,attributionControl:false});let overlay;
 function selectFloor(id){const f=floors[id];const bounds=[[0,0],[f.h,f.w]];if(overlay)map.removeLayer(overlay);overlay=L.imageOverlay(f.src,bounds).addTo(map);map.setMaxBounds(L.latLngBounds(bounds).pad(0.4));map.fitBounds(bounds,{padding:[15,15]});document.querySelectorAll('[data-floor]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.floor===id)));}
-document.querySelectorAll('[data-floor]').forEach(b=>b.addEventListener('click',()=>selectFloor(b.dataset.floor)));selectFloor('1');
+document.querySelectorAll('[data-floor]').forEach(b=>b.addEventListener('click',()=>selectFloor(b.dataset.floor)));selectFloor('B');
 </script></body></html>
